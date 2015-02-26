@@ -27,6 +27,8 @@ def create(target):
 	# name of the dependency
 	myModule.add_module_depend('z')
 	
+	myModule.compile_version_CC(1999)
+	
 	myModule.add_export_path(tools.get_current_path(__file__) + "/include")
 	# configure library :
 	
