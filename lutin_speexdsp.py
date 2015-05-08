@@ -1,6 +1,6 @@
 #!/usr/bin/python
-import lutinModule as module
-import lutinTools as tools
+import lutin.module as module
+import lutin.tools as tools
 
 def get_desc():
 	return "speex dsp : Algorithm of speex codec"
@@ -33,37 +33,37 @@ def create(target):
 	# configure library :
 	
 	# Make use of ARM4 assembly optimizations
-	#myModule.compile_flags_CC("-DARM4_ASM=1")
+	#myModule.compile_flags('c', "-DARM4_ASM=1")
 	# Make use of ARM5E assembly optimizations
-	#myModule.compile_flags_CC("-DARM5E_ASM=1")
+	#myModule.compile_flags('c', "-DARM5E_ASM=1")
 	# Make use of Blackfin assembly optimizations
-	#myModule.compile_flags_CC("-DBFIN_ASM=1")
+	#myModule.compile_flags('c', "-DBFIN_ASM=1")
 	# Disable all parts of the API that are using floats
-	#myModule.compile_flags_CC("-DDISABLE_FLOAT_API=1")
+	#myModule.compile_flags('c', "-DDISABLE_FLOAT_API=1")
 	# Enable valgrind extra checks
-	#myModule.compile_flags_CC("-DENABLE_VALGRIND=1")
+	#myModule.compile_flags('c', "-DENABLE_VALGRIND=1")
 	# Symbol visibility prefix */
 	#define EXPORT __attribute__((visibility("default")))
-	myModule.compile_flags_CC("-DEXPORT=''")
+	myModule.compile_flags('c', "-DEXPORT=''")
 	# Debug fixed-point implementation */
-	#myModule.compile_flags_CC("-DFIXED_DEBUG=1")
+	#myModule.compile_flags('c', "-DFIXED_DEBUG=1")
 	# Compile as fixed-point / floating-point
 	if True:
-		myModule.compile_flags_CC("-DFIXED_POINT")
+		myModule.compile_flags('c', "-DFIXED_POINT")
 	else:
-		myModule.compile_flags_CC("-DFLOATING_POINT")
+		myModule.compile_flags('c', "-DFLOATING_POINT")
 		# Enable NEON support */
-		#myModule.compile_flags_CC("-D_USE_NEON=1")
+		#myModule.compile_flags('c', "-D_USE_NEON=1")
 		# Enable SSE support */
-		myModule.compile_flags_CC("-D_USE_SSE=1")
+		myModule.compile_flags('c', "-D_USE_SSE=1")
 		# Enable SSE2 support */
-		myModule.compile_flags_CC("-D_USE_SSE2=1")
+		myModule.compile_flags('c', "-D_USE_SSE2=1")
 	# Define to 1 if you have the <alloca.h> header file.
-	myModule.compile_flags_CC("-DHAVE_ALLOCA_H=1")
+	myModule.compile_flags('c', "-DHAVE_ALLOCA_H=1")
 	# Use FFT from OggVorbis */
-	myModule.compile_flags_CC("-DUSE_SMALLFT=1")
+	myModule.compile_flags('c', "-DUSE_SMALLFT=1")
 	# Use C99 variable-size arrays */
-	myModule.compile_flags_CC("-DVAR_ARRAYS=1")
+	myModule.compile_flags('c', "-DVAR_ARRAYS=1")
 	
 	return myModule
 
